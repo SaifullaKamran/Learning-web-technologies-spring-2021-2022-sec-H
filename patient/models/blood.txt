@@ -1,0 +1,11 @@
+Saifulla|male|AB-
+Saifulla|male|A-
+Saifulla|male|A-
+Saifulla|male|AB-
+Saifulla|male|A-
+Saifulla|male|A-
+Saifulla|male|A-
+Saifulla|male|A-
+Saifulla|male|AB+
+Saifulla|male|A-
+abcd|male|O-

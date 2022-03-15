@@ -1,0 +1,37 @@
+<html>
+<body align="center">
+
+<h1>Add Blood type</h1>
+
+<form method="post" action="../controllers/add_blood.php">
+  <label for="fname">Name:</label>
+  <input type="text" id="fname" name="fname" value=""><br>
+  
+  <tr>
+        <td>Gender: </td>
+        <td>
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female
+            <input type="radio" name="gender" value="other"> Other<br>
+        </td>
+  </tr>
+  <tr>
+        <td>Blood Group: </td>
+          <td>
+            <select name="blood_type">
+              <option >A+</option>
+              <option >A-</option>
+              <option >AB+</option>
+              <option >AB-</option>
+              <option >B+</option>
+              <option >B-</option>
+              <option >O+</option>
+              <option >O-</option>
+            </select>
+          </td>
+        </tr><br>
+        <input type="submit" name="submit" value="Submit">
+        
+</form> 
+</body>
+</html>

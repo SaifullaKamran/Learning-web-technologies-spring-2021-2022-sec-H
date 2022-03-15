@@ -1,0 +1,45 @@
+<html>
+<title>
+</title>
+<body>
+<form action="../controllers/book_appointment.php" id="" method="POST" >
+  <fieldset>
+    <legend>Book Appointment</legend>
+
+    <label>Name<input type="text" name="name"></label>
+
+    <label>Email address<input type="email" name="email"></label>
+
+    <label>Phone number<input type="tel" name="phone"></label>
+
+    
+  </fieldset>
+
+  <fieldset>
+    <legend>Appointment request</legend>
+     <label>Date of Birth
+        <input type="date" name="appointment_request"></label>
+      
+      <label>
+        <input type="hidden" name="morning_desired" value="no">
+        <input type="checkbox" name="morning_desired" value="yes">
+          Morning
+        </label>
+
+        <label>
+          <input type="hidden" name="afternoon_desired" value="no">
+          <input type="checkbox" name="afternoon_desired" value="yes">
+          Afternoon
+        </label>
+
+    <p>Confirmation requested by</p>
+    
+      <label><input type="radio" name="confirmation_requested_by" value="email" checked>Email</label>
+
+      <label><input type="radio" name="confirmation_requested_by" value="phone">Phone call</label>
+  
+  </fieldset>
+  <input type="submit" name="submit" value="Submit request">
+</form>
+</body>
+</html>

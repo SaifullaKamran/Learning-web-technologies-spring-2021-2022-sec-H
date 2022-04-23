@@ -1,32 +1,51 @@
 <html>
-<title>
-</title>
-<body>
-<form action="../controllers/cancel_appointment.php" id="ft-form" method="POST" >
-  <fieldset>
-    <legend>Cancel Appointment</legend>
+  <head>
+    <style>
+      fieldset {background-color: greenyellow;}
+    </style>
+  </head>
+  <body>
+    <form
+      action="../controllers/cancel_appointment.php"
+      method="POST"
+    >
+      <fieldset>
+        <h1 style="color:blue;">
+        <legend>Cancel Appointment</legend>
+        </h1>
 
-    <label>Name<input type="text" name="name"></label>
+        <label>Name</label><input type="text" name="name" />
 
-    
-    <label>Email address<input type="email" name="email"></label>
+        <label>Email address</label><input type="email" name="email" />
 
-    <label>Phone number<input type="tel" name="phone"></label>
+        <label>Phone number</label><input type="tel" name="phone" />
+      </fieldset>
 
-    
-  </fieldset>
+      <fieldset>
+        <h2 style="color:blue;">
+        <legend>Cancel Appointment Request</legend>
+      </h2>
 
-  <fieldset>
-    <legend>Cancel appointment request</legend>
+        <p>Cancel confirmation by</p>
 
-     <p>Cancel confirmation by</p>
-    
-      <label><input type="radio" name="Confirmation requested by" value="email" checked>Email</label>
+        <label>Email</label
+        ><input
+          type="radio"
+          name="cancel_requested_by"
+          id="cancel_requested_by_email"
+          value="email"
+          checked
+        />
 
-      <label><input type="radio" name="Confirmation requested by" value="phone">Phone call</label>
-  
-  </fieldset>
-  <input type="submit" name="submit" value="Submit request">
-</form>
-</body>
+        <label>Phone call</label
+        ><input
+          type="radio"
+          name="cancel_requested_by"
+          id="cancel_requested_by_phone"
+          value="phone"
+        />
+      </fieldset>
+      <input type="submit" name="submit" value="Submit" />
+    </form>
+  </body>
 </html>

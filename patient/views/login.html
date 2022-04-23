@@ -1,31 +1,75 @@
+<?php 
+
+  $error = "";
+  if(isset($_GET['msg'])){
+    if($_GET['msg'] == 'error'){
+      $error = "invalid username/password";
+    }
+  }
+
+
+?>
+
 <html>
 <head>
-  <title> Login Page</title>
+  <style>
+   fieldset {background-color: greenyellow;}
+   .imgcontainer {
+      text-align: center;
+      margin: 24px 0 12px 0;
+      }
+
+      img.avatar {
+      width: 15%;
+      border-radius: 20%;
+      }
+      h2 {color: darkred;}
+   </style>
+
+  <title>Login page</title>
+  <script src ="../asset/js/script.js" type="text/javascript"></script>
 </head>
 <body>
-  
-  <form method="post" action="../controllers/logincheck.php">
-    <fieldset align="center">
+
+  <form id="myForm" method="POST" onsubmit="return logvalidation()" action="../controllers/logincheck.php">
+
+    <div class="imgcontainer">
+    <img src="ProfileImage (3).jpg" alt="Avatar" class="avatar">
+    </div>
+
+
+   
+    <fieldset >
+      <h1 style="color:blue;">
+      <legend>Patient Login</legend>
+      </h1>
+
       
-      <legend>PATIENT LOGIN</legend>
-      <center>
-        <table>
+      <p style="color:red;"> 
+      <table>
+        <p style="color:red;">
         <tr>
-          <td>Username: </td>
+          <td>Username</td>
           <td><input type="text" name="username" value=""></td>
-        </tr>
-        <tr>
-          <td>Password:</td>
+       </tr>
+     </p>
+       <tr>
+          <td>Password</td>
           <td><input type="password" name="password" value=""></td>
         </tr>
         <tr>
-          <td><a href="signup.html">Not a patient?</a></td>
-          <td><input type="submit" name="submit" value="submit"></td>
+          <td></td>
+          <td>
+            <input type="submit" name="submit" value="Submit">
+            <a href="./signup.html"> <h2>Signup</h2></a>>
+            <br>
+            <?=$error?>
+          </td>
         </tr>
       </table>
-      </center>
-     </fieldset>
+    
+    </fieldset>
+  </h1>
   </form>
-
 </body>
-</html
+</html>

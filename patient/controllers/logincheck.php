@@ -1,28 +1,47 @@
 <?php 
-session_start();
-if(isset($_REQUEST['submit'])){
+	session_start();
+	require('../models/userModel.php');
+
+	if(isset($_REQUEST['submit'])){
 		$username = $_REQUEST['username'];
 		$password = $_REQUEST['password'];
+
+		if($username != null && $password != null){
 		
-
-		if($username != ""){
-			if($password != ""){
-				$myfile = fopen('../models/test.txt', 'r');
-
-				while(!feof($myfile)){
-					$data = fgets($myfile);
-					$myuser = explode('|', $data);
-					if(trim($myuser[0]) == $username && trim($myuser[1]) == $password){
-						$_SESSION['flag']="true";
-						header('location:index.php');
-				}
-			}
-			echo "Everything went wrong" ;
+			$status = logincheck($username, $password);
+			if($status){
+				$_SESSION['status'] = 'true';
+				setcookie('status', 'true', time()+3600, '/');
+				header('location: ../views/index.php');
 			}else{
-				echo "Give a Password";
+				//header('location: ../views/logincheck.php?msg=error');
+				echo "Invalid Credentials!";
 			}
+
+
+			/*if(isset($_SESSION['user'])){
+				$user = $_SESSION['user'];
+			}*/
+
+			/*$file = fopen('../model/user.txt', 'r');
+			$user = fread($file, filesize('../model/user.txt'));
+			//fgets()
+
+			fclose($file);
+			$abc = explode('|', $user);
+			//print_r($abc);
+				
+			if(trim($abc[1]) == $username && trim($abc[2]) == $password){
+				$_SESSION['status'] = 'true';
+				setcookie('status', 'true', time()+3600, '/');
+				
+				header('location: ../views/home.php');
+			}else{
+				echo "invalid username/password";
+			}*/
+
 		}else{
-			echo "Give a Username";
+			echo "null submission..";
 		}
-	}
+	}	
 ?>

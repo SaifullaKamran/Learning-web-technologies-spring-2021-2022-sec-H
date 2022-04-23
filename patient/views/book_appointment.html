@@ -1,45 +1,65 @@
 <html>
-<title>
-</title>
-<body>
-<form action="../controllers/book_appointment.php" id="" method="POST" >
-  <fieldset>
-    <legend>Book Appointment</legend>
+  <head>
+    <style>
+      fieldset {background-color: greenyellow;}
+    </style>
+ </head>
+  <body>
+    <form action="../controllers/book_appointment.php" method="POST">
+      <fieldset>
+        <h1 style="color:blue;">
+        <legend>Book Appointment</legend></h1>
 
-    <label>Name<input type="text" name="name"></label>
+        <label>Name</label><input type="text" name="name" />
 
-    <label>Email address<input type="email" name="email"></label>
+        <label></label>Email address<input type="email" name="email" />
 
-    <label>Phone number<input type="tel" name="phone"></label>
+        <label></label>Phone number<input type="tel" name="phone" />
+      </fieldset>
 
-    
-  </fieldset>
+      <fieldset>
+        <h2 style="color:blue;">
+        <legend>Appointment Request</legend></h2>
+        <label>Date of Birth </label
+        ><input type="date" name="appointment_date" />
 
-  <fieldset>
-    <legend>Appointment request</legend>
-     <label>Date of Birth
-        <input type="date" name="appointment_request"></label>
+        <label> Morning </label>
+        <input
+          type="radio"
+          name="shift_desired"
+          id="morning"
+          value="morning_desired"
+        />
+
+        <label> Afternoon </label>
+        <input
+          type="radio"
+          name="shift_desired"
+          id="afternoon"
+          value="afternoon_desired"
+        />
+
+        <p>Confirmation requested by</p>
+        
+
+        <label>Email</label>
+        <input
+          type="radio"
+          name="confirmation_requested_by"
+          id="confirmation_requested_by_email"
+          value="email"
+        />
       
-      <label>
-        <input type="hidden" name="morning_desired" value="no">
-        <input type="checkbox" name="morning_desired" value="yes">
-          Morning
-        </label>
 
-        <label>
-          <input type="hidden" name="afternoon_desired" value="no">
-          <input type="checkbox" name="afternoon_desired" value="yes">
-          Afternoon
-        </label>
-
-    <p>Confirmation requested by</p>
-    
-      <label><input type="radio" name="confirmation_requested_by" value="email" checked>Email</label>
-
-      <label><input type="radio" name="confirmation_requested_by" value="phone">Phone call</label>
-  
-  </fieldset>
-  <input type="submit" name="submit" value="Submit request">
-</form>
-</body>
+        <label>Phone call</label>
+        <input
+          type="radio"
+          name="confirmation_requested_by"
+          id="confirmation_requested_by_phone"
+          value="phone"
+        />
+      </fieldset>
+      <input type="submit" name="submit" value="Submit" />
+    </form>
+  </body>
 </html>

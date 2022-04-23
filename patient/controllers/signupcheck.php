@@ -1,46 +1,34 @@
 <?php 
-session_start();
-if(isset($_REQUEST['submit'])){
+	session_start();
+	require('../models/userModel.php');
+
+	if(isset($_REQUEST['submit'])){
 		$username = $_REQUEST['username'];
 		$password = $_REQUEST['password'];
 		$email = $_REQUEST['email'];
 
-		if($username != ""){
-			if($password != ""){
-				if($email != ""){
-					if(strlen($username)<3){
-						echo "Error";
-					}
-					else if(!strpos($password, "#")){
-						echo "Need a special character like #";
-					}
-					else{
-						/*$_SESSION['username']=$username;
-						$_SESSION['password']=$password;*/
-						$myfile = fopen('../models/test.txt', 'a');
-						$user = $username."|".$password."|".$email."\r\n";
-						fwrite($myfile, $user);
-						fclose($myfile);
-					
-						header('location: ../views/login.html');
-					}
-					
-				}else{
-					echo "Give an Email";
-				}
+		if($username != null && $password != null && $email != null){
+			
+			//$user = ['username'=>$username, 'password'=>$password, 'email'=>$email];
+			//$_SESSION['user'] = $user;
+
+			/*$user = $username."|".$password."|".$email;
+			$file = fopen("../model/user.txt", 'w');
+			fwrite($file, $user);
+			fclose($file);*/
+			
+			$status = signupcheck($username, $password, $email);
+
+			if($status){
+				//header('location: ../controllers/logincheck.php');
+				echo "signup complete!";
 			}else{
-				echo "Give a Password";
+				//header('location: ../controllers/signupcheck.php');
+				echo "signup failed!";
 			}
+
 		}else{
-			echo "Give a Username";
+			echo "null submission..";
 		}
-	}
-
-
-
-
-
-
-
-
+	}	
 ?>
